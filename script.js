@@ -80,3 +80,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+let lastScroll = 0;
+const header = document.querySelector(".main-header");
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.scrollY;
+
+  // selalu tampil di paling atas
+  if (currentScroll <= 20) {
+    header.classList.remove("hide");
+    return;
+  }
+
+  // scroll ke bawah = hide
+  if (currentScroll > lastScroll && currentScroll > 100) {
+    header.classList.add("hide");
+  }
+
+  // scroll ke atas = show
+  else if (currentScroll < lastScroll) {
+    header.classList.remove("hide");
+  }
+
+  lastScroll = currentScroll;
+});
