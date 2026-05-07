@@ -1,14 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Grotesk:wght@400;600&family=Nunito:wght@300;400&display=swap');
+
 :root {
   --base: #16131c;
   --secondary: #242424;
-  --accent: #7dd3fc; /* baby blue kamu */
+  --accent: #7dd3fc;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+p, .text {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
 }
 
 body::before {
@@ -23,11 +31,11 @@ body::before {
   );
 
   pointer-events: none;
-  z-index: 999; /* di atas semua */
+  z-index: 999;
 }
 
 body {
-  background: radial-gradient(circle at center,  var(--secondary), var(--base), #0b1f19);
+  background: radial-gradient(circle at center, var(--secondary), var(--base), #0b1f19);
   color: #e5e7eb;
   opacity: 1;
   transform: scale(1);
@@ -35,12 +43,12 @@ body {
   transition: opacity 0.5s ease, transform 0.5s ease, filter 0.5s ease;
 }
 
-/* State awal saat halaman baru terbuka (tersembunyi) */
 body.fade-in-start {
   opacity: 0;
-  transform: scale(1.02); /* sedikit membesar */
+  transform: scale(1.02);
   filter: blur(10px);
 }
+
 body::after {
   content: "";
   position: fixed;
@@ -51,19 +59,15 @@ body::after {
     radial-gradient(circle at 80% 80%, rgba(255,255,255,0.160) 1px, transparent 2px);
 
   background-size: 60px 60px;
-
   opacity: 0.3;
   pointer-events: none;
   z-index: -1;
+  animation: shimmer 20s linear infinite;
 }
 
 @keyframes shimmer {
   0% { background-position: 0 0; }
   100% { background-position: 200px 200px; }
-}
-
-body::after {
-  animation: shimmer 20s linear infinite;
 }
 
 @keyframes float {
@@ -92,7 +96,6 @@ header.hide {
   position: absolute;
   top: 0;
   left: 0;
-
   z-index: -1;
   overflow: hidden;
 }
@@ -142,13 +145,10 @@ header.hide {
   max-width: 1200px;
   width: 100%;
   height: 80px;
-
-  /* TAMBAHKAN BARIS DI BAWAH INI */
-  display: flex;            /* Mengaktifkan mode flex */
-  align-items: center;      /* Menengah kan secara vertikal */
-  justify-content: center;   /* Menengah kan secara horizontal */
-  gap: 15px;                /* Memberi jarak antara ikon dan teks */
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
   padding: 12px 30px;
   border-radius: 10px;
   background: rgba(100, 17, 159, 0.112);
@@ -162,10 +162,8 @@ header.hide {
   content: "";
   position: absolute;
   inset: 0;
-
   background: rgba(50, 19, 124, 0.13);
   border-radius: inherit;
-
   transition: 0.3s;
   z-index: 0;
 }
@@ -175,48 +173,41 @@ header.hide {
   position: absolute;
   width: 20px;
   height: 20px;
-
   border-radius: 50%;
-
   transform: scale(0);
   opacity: 0;
-
   pointer-events: none;
 }
 
-/* HOVER EFFECT */
 .social-item:hover {
   animation: pulseGlow 3s infinite;
   color: white;
+  background: rgba(125,211,252,0.2);
+  transform: scale(1.05);
 }
 
 .social-item .bg {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-
   background: rgba(255,255,255,0.05);
-
   transition: 0.3s;
   z-index: 0;
 }
 
-/* glow hover */
 .social-item:hover .bg {
   transform: scale(1,2);
   background: #39226046;
 }
 
-/* ICON */
 .social-item i {
   font-size: 35px;
   transition: transform 0.3s ease;
 }
 
-/* TEXT */
 .social-item span {
   font-size: 25px;
-  font-family: 'Cal Sans', serif;
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 .social-item:hover i,
@@ -224,14 +215,17 @@ header.hide {
   transform: scale(1.05);
 }
 
+.social-item.active {
+  background: linear-gradient(135deg, #7dd3fc, #a78bfa);
+  box-shadow: 0 0 20px #7dd3fc;
+}
+
 .ripple {
   position: absolute;
   width: 20px;
   height: 20px;
-
   background: #8f36dd47;
   border-radius: 50%;
-
   transform: translate(-50%, -50%) scale(0);
   animation: rippleAnim 0.6s ease-out;
   pointer-events: none;
@@ -246,7 +240,7 @@ header.hide {
 
 .logo {
   width: 10%; 
-  max-width: 70px; /* FIX biar tidak terlalu kecil/besar di berbagai layar */
+  max-width: 70px;
   height: auto;
   object-fit: contain;
 }
@@ -257,13 +251,23 @@ header.hide {
   transition: 0.3s;
 }
 
-nav a {
-  margin-left: 55px;
-  color: var(--white);
-  text-decoration: none;
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-right: 25px;
 }
 
-nav a:hover { color: var(--baby-blue); }
+nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 23px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+}
+
+nav a:hover { color: #7dd3fc; }
 
 section {
   min-height: 100vh;
@@ -296,38 +300,33 @@ section {
   width: 250px;
   border-radius: 20px;
   margin-bottom: 20px;
-  box-shadow: 0 0 30px var(--baby-blue);
+  box-shadow: 0 0 30px #7dd3fc;
 }
 
 .typing {
-  color: var(--baby-blue);
+  color: #7dd3fc;
   font-size: 5rem;
   height: auto;
   min-height: 80px;
-  font-family: 'Bungee', serif;
-  display : block;
-  
-  /* glow dasar */
+  display: block;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  letter-spacing: -1px;
   text-shadow: 0 0 5px rgba(125,211,252,0.3);
 }
 
-/* layer cahaya */
 .typing::before {
   content: attr(data-text);
   position: absolute;
   top: 0;
   left: 0;
   color: #7dd3fc;
-
   pointer-events: none;
-
-  /* ini kuncinya */
   background: radial-gradient(
     circle 60px at var(--x) var(--y),
     rgba(125,211,252,0.8),
     transparent 80px
   );
-
   opacity: 0;
   transition: opacity 0.2s;
 }
@@ -338,15 +337,18 @@ section {
 
 .text {
   color: #7dd3fc;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
 }
 
 .btn {
   margin-top: 20px;
   padding: 10px 20px;
-  background: var(--baby-blue);
+  background: #7dd3fc;
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 .tabs {
@@ -365,27 +367,8 @@ section {
   font-size: 23px;
 }
 
-nav {
-  display: flex;
-  justify-content: center; /* Menengahkan secara horizontal */
-  align-items: center;     /* Menengahkan secara vertikal */
-  gap: 50px;               /* Memberi jarak antar link tanpa perlu margin manual */
-  margin-right: 25px;
-}
-
-nav a {
-  text-decoration: none;
-  color: white;
-  font-size: 23px;
-  font-family: 'Cal Sans', serif;
-}
-
 .tab {
-  padding: 10px 15px;
-  background: var(--navy);
   cursor: pointer;
-  border-radius: 8px;
-  font-family: 'Oswald', serif;
   gap: 25px;
   margin-left: 10px;
   margin-right: 10px;
@@ -395,7 +378,8 @@ nav a {
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(96, 13, 249, 0.402);
   transition: all 0.3s cubic-bezier(0.25, 1.5, 0.5, 1);
-  font-family: 'Cal Sans', serif;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
 }
 
 .tab.active { 
@@ -412,52 +396,41 @@ nav a {
 }
 
 #content {
-    margin-top: 20px; /* Beri jarak agar tidak nempel ke tab */
-    position: relative;
-    z-index: 1;
-}
-
-.social-item:hover {
-  background: rgba(125,211,252,0.2);
-  transform: scale(1.05);
-}
-
-/* 🔥 ACTIVE (klik) */
-.social-item.active {
-  background: linear-gradient(135deg, #7dd3fc, #a78bfa);
-  box-shadow: 0 0 20px #7dd3fc;
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .socials {
-    display: flex;
-    gap: 20px;
-    padding: 10px;
-    justify-content: center; /* Agar ikon di tengah */
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+  justify-content: center;
 }
 
 .socials a {
-    font-size: 2rem;
-    z-index: 10; /* Pastikan link bisa diklik tapi tidak melebar */
-    display: inline-block;
+  font-size: 2rem;
+  z-index: 10;
+  display: inline-block;
 }
 
 .talent a {
   display: inline-block;
   margin: 10px;
   padding: 10px 15px;
-  background: var(--baby-blue);
+  background: #7dd3fc;
   color: black;
   border-radius: 8px;
   text-decoration: none;
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 footer {
   text-align: center;
   padding: 20px;
-  background: var(--navy);
+  font-family: 'Nunito', sans-serif;
 }
 
-/* -- Ini untuk talentnya -- */
 #talent {
   display: flex;
   flex-direction: column;
@@ -471,49 +444,42 @@ footer {
   justify-content: center;
 }
 
-.p{
-  font-size: 10px;
-}
-
-.subtitle{
+.subtitle {
   font-size: 85px;
-  font-family: 'Oswald';
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  letter-spacing: -2px;
 }
 
 .talent-card {
   position: relative;
   width: 260px;
   height: 480px;
-  overflow: hidden; /* 🔥 ini yang motong gambar */
+  overflow: hidden;
   border-radius: 20px;
   margin-top: 20px;
-
-  position: relative;
-  overflow: hidden;
-
   transform-style: preserve-3d;
   transition: transform 0.2s ease;
   will-change: transform;
 }
 
 .talent-card::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* Agar tidak mengganggu klik */
-    background: radial-gradient(
-        circle at var(--light-x, 50%) var(--light-y, 50%), 
-        rgba(255, 255, 255, var(--light-opacity, 0)) 0%, 
-        transparent 60%
-    );
-    mix-blend-mode: overlay; /* Membuat cahaya terlihat lebih alami */
-    transition: opacity 0.3s ease;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--light-x, 50%) var(--light-y, 50%), 
+    rgba(255, 255, 255, var(--light-opacity, 0)) 0%, 
+    transparent 60%
+  );
+  mix-blend-mode: overlay;
+  transition: opacity 0.3s ease;
 }
 
-/* aktif cuma saat hover */
 .talent-card:hover::after {
   opacity: 1;
 }
@@ -522,16 +488,13 @@ footer {
   transform: perspective(800px) rotateX(5deg) rotateY(5deg);
 }
 
-/* 🔒 awal: gembok disembunyikan */
 .lock-overlay {
   position: absolute;
   left: 50%;
-  bottom: -100px; /* 🔥 mulai dari bawah (hidden) */
+  bottom: -100px;
   transform: translateX(-50%);
-
   opacity: 0;
   pointer-events: none;
-
   transition: all 0.4s ease;
   z-index: 5;
 }
@@ -541,19 +504,15 @@ footer {
   filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
 }
 
-/* 🔥 saat aktif → naik */
 .talent-card.show-lock .lock-overlay {
-  bottom: 120px; /* posisi muncul */
+  bottom: 120px;
   opacity: 1;
 }
 
-/* 🔥 animasi shake */
 @keyframes shake {
-  0% { transform: translateX(-50%) translateX(0); }
-  25% { transform: translateX(-50%) translateX(-6px); }
-  50% { transform: translateX(-50%) translateX(6px); }
-  75% { transform: translateX(-50%) translateX(-4px); }
-  100% { transform: translateX(-50%) translateX(0); }
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
 }
 
 .talent-card.shake .lock-overlay {
@@ -566,26 +525,18 @@ footer {
     drop-shadow(0 0 20px #7dd3fc);
 }
 
-/* Tampilkan gembok jika kartu punya class .locked */
 .talent-card.locked .lock-overlay {
-    display: flex;
+  display: flex;
 }
 
-/* Pastikan kartu tetap hijau dan tidak pudar */
 .talent-card.locked {
-    cursor: not-allowed;
-    filter: none !important; /* Mematikan grayscale jika ada */
-    opacity: 1 !important;   /* Tetap terang */
+  cursor: not-allowed;
+  filter: none !important;
+  opacity: 1 !important;
 }
 
-/* Animasi getar saat diklik */
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-8px); }
-    75% { transform: translateX(8px); }
-}
 .locked-shake {
-    animation: shake 0.2s ease-in-out 2;
+  animation: shake 0.2s ease-in-out 2;
 }
 
 .talent-card.blue {
@@ -598,7 +549,6 @@ footer {
   box-shadow: 0 0 50px rgba(59,130,246,0.4);
 }
 
-
 .talent-card.red {
   background:
     radial-gradient(circle at 50% 0%, rgba(22,19,28,1), rgba(22,19,28,0.6), transparent),
@@ -609,7 +559,6 @@ footer {
   box-shadow: 0 0 50px rgba(246, 59, 227, 0.4);
 }
 
-
 .talent-card.green {
   background:
     radial-gradient(circle at 50% 0%, rgba(22,19,28,1), rgba(22,19,28,0.6), transparent),
@@ -619,7 +568,6 @@ footer {
 .talent-card.green:hover {
   box-shadow: 0 0 50px rgba(59, 246, 184, 0.4);
 }
-
 
 .talent-card.purple {
   background:
@@ -641,22 +589,18 @@ footer {
   box-shadow: 0 0 50px rgba(227, 246, 59, 0.4);
 }
 
-/* IMAGE JADI BACKGROUND */
 .talent-card img {
   width: 100%;
   height: 100%;
   margin-top: 30px;
   object-fit: cover;
-
-  object-position: center top; /* 🔥 fokus ke atas */
-  transition: transform 0.4s ease;
-
+  object-position: center top;
   transform: translateZ(40px);
   transition: transform 0.2s;
 }
 
 .talent-card:hover img {
-  transform: translateY(-20px); /* 🔥 naik */
+  transform: translateY(-20px);
 }
 
 .glass-card {
@@ -664,24 +608,16 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
-
   padding: 15px 8px;
   text-align: center;
-  color: var(--base);
+  color: white;
   margin-left: 5px;
   margin-bottom: 5px;
   margin-right: 5px;
-
-  /* 🔥 border tipis */
   border: 1.5px solid rgba(255, 255, 255, 0.4);
-
-  /* 🔥 sudut lebih tebal & halus */
   border-radius: 15px;
-
-  /* glass base */
   background: rgba(255,255,255,0.08);
   backdrop-filter: blur(20px);
-
   overflow: hidden;
   z-index: 2;
 }
@@ -693,17 +629,14 @@ footer {
   left: -50%;
   width: 200%;
   height: 200%;
-
   background: linear-gradient(
     120deg,
     transparent,
     rgba(255,255,255,0.4),
     transparent
   );
-
   transform: rotate(25deg);
   opacity: 0.4;
-
   pointer-events: none;
 }
 
@@ -737,52 +670,46 @@ footer {
     rgba(255,255,255,0.08);
 }
 
-/* OVERLAY GRADIENT */
 .info {
   position: absolute;
   bottom: 0;
   width: 100%;
   padding: 20px;
-
-  /* 🔥 gradient glass */
   background: linear-gradient(
     to top,
     rgba(125, 211, 252, 0.6),
     rgba(125, 211, 252, 0.2),
     transparent
   );
-
   backdrop-filter: blur(10px);
   color: white;
 }
 
-/* TEXT */
 .sub {
   font-size: 14px;
   letter-spacing: 3px;
   opacity: 0.8;
   transition: 0.3s ease;
+  font-family: 'Space Grotesk', sans-serif;
 }
 
-.talent-card:hover .sub{
+.talent-card:hover .sub {
   color: #ffffff;
-
   text-shadow:
     0 0 5px rgba(255,255,255,0.6),
     0 0 10px rgba(125,211,252,0.6),
     0 0 20px rgba(125,211,252,0.4);
 }
 
-
 .glass-card h2 {
   font-size: 28px;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
   transition: 0.3s ease;
 }
 
-/* 🔥 saat hover */
 .talent-card:hover .glass-card h2 {
   color: #ffffff;
-
   text-shadow:
     0 0 5px rgba(255,255,255,0.6),
     0 0 10px rgba(125,211,252,0.6),
