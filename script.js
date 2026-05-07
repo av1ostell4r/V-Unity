@@ -2,14 +2,28 @@
 const text = "Welcome to V-Unity!";
 let index = 0;
 
+// Change variable name
+let charIndex = 0;
+
 function typeEffect() {
-    const typingElement = document.getElementById("typing");
-    if (typingElement && index < text.length) {
-        typingElement.innerHTML += text.charAt(index);
-        index++;
-        setTimeout(typeEffect, 50);
-    }
+  const typingElement = document.getElementById("typing");
+  if (typingElement && charIndex < text.length) {
+    typingElement.innerHTML += text.charAt(charIndex);
+    charIndex++;
+    setTimeout(typeEffect, 50);
+  }
 }
+
+// Only ONE DOMContentLoaded
+document.addEventListener("DOMContentLoaded", () => {
+  typeEffect(); // only call once here
+  
+  setTimeout(() => {
+    document.body.classList.remove("fade-in-start");
+  }, 10);
+
+  // ... rest of your code
+});
 
 // --- 2. Tab Logic ---
 function showTab(event, type) {
