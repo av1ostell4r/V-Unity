@@ -59,21 +59,24 @@ function showTab(event, type) {
     `;
 
     // styling via JS
-    content.querySelectorAll(".title").forEach(el => {
-      el.style.color = "#ffffff";
-      el.style.fontSize = "52px";
-      el.style.marginTop = "20px";
-      el.style.marginTop = "50px";
-    });
+content.querySelectorAll(".title").forEach(el => {
+  el.style.color = "#ffffff";
+  el.style.fontSize = "42px"; // ✅ smaller
+  el.style.marginTop = "30px";
+  el.style.fontFamily = "'Syne', sans-serif"; // ✅ new font
+  el.style.fontWeight = "800";
+});
 
-    content.querySelectorAll(".text").forEach(el => {
-      el.style.lineHeight = "1.6";
-      el.style.fontSize = "23px";
-      el.style.color = "white";
-      el.style.textAlign = "justify";
-      el.style.margin = "20px 180px";
-    });
-  }
+content.querySelectorAll(".text").forEach(el => {
+  el.style.lineHeight = "1.7";
+  el.style.fontSize = "18px";       // ✅ smaller
+  el.style.color = "rgba(255,255,255,0.75)";
+  el.style.textAlign = "justify";
+  el.style.margin = "15px auto";    // ✅ auto instead of 180px
+  el.style.maxWidth = "700px";      // ✅ limit width nicely
+  el.style.fontFamily = "'Nunito', sans-serif"; // ✅ new font
+  el.style.fontWeight = "300";
+});
 
   // --- SOSMED ---
   else if (type === "Sosmed") {
