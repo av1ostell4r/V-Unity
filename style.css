@@ -97,32 +97,10 @@ header.hide {
   overflow: hidden;
 }
 
-.social-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
-}
-
-.social-item {
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
-  text-decoration: none;
-
-  padding: 18px 22px;
-  border-radius: 14px;
-
+.socials {
   display: flex;
-  align-items: center;
+  gap: 40px;
   justify-content: center;
-  gap: 12px;
-
-  transition: 0.3s ease;
-}
-
-.social-item:hover {
-  background: var(--accent);
-  color: black;
-  transform: translateY(-5px);
 }
 
 .socials a {
@@ -148,6 +126,68 @@ header.hide {
 .socials a:hover {
   color: white;
   transform: scale(1.2);
+}
+
+.social-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  place-items: center;
+  margin-top: 60px;
+}
+
+.social-item {
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  height: 80px;
+
+  /* TAMBAHKAN BARIS DI BAWAH INI */
+  display: flex;            /* Mengaktifkan mode flex */
+  align-items: center;      /* Menengah kan secara vertikal */
+  justify-content: center;   /* Menengah kan secara horizontal */
+  gap: 15px;                /* Memberi jarak antara ikon dan teks */
+  
+  padding: 12px 30px;
+  border-radius: 10px;
+  background: rgba(100, 17, 159, 0.112);
+  color: white;
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.social-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: rgba(50, 19, 124, 0.13);
+  border-radius: inherit;
+
+  transition: 0.3s;
+  z-index: 0;
+}
+
+.social-item::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+
+  border-radius: 50%;
+
+  transform: scale(0);
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+/* HOVER EFFECT */
+.social-item:hover {
+  animation: pulseGlow 3s infinite;
+  color: white;
 }
 
 .social-item .bg {
