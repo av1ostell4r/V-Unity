@@ -70,38 +70,74 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderTab("Story");
 
-  // Talent cards redirect
-  const cards = document.querySelectorAll(".talent-card");
+const talentCards = document.querySelectorAll(".talent-card");
 
-  cards.forEach(card => {
-    card.addEventListener("click", () => {
-      const page = card.dataset.page;
-      if (page) window.location.href = page;
+talentCards.forEach(card => {
+    // Event Klik (Logika yang sudah ada)
+    card.addEventListener("click", function (e) {
+        if (this.classList.contains("locked")) {
+            this.classList.add("locked-shake");
+            setTimeout(() => this.classList.remove("locked-shake"), 500);
+            return;
+        }
+        const page = this.dataset.page;
+        if (page) {
+            document.body.classList.add("fade-out");
+            setTimeout(() => { window.location.href = page; }, 300);
+        }
     });
-  });
+
+    // Efek Hover 3D & Cahaya Berlawanan
+    card.addEventListener("mousemove", function (e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left; // Posisi X kursor di dalam kartu
+        const y = e.clientY - rect.top;  // Posisi Y kursor di dalam kartu
+
+        // Hitung titik tengah kartu
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        // Hitung rotasi (makin jauh dari tengah, makin miring)
+        // Nilai 15 adalah intensitas kemiringan (bisa diubah)
+        const rotateX = ((y - centerY) / centerY) * -15; 
+        const rotateY = ((x - centerX) / centerX) * 15;
+
+        // Terapkan Transform
+        this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+
+        // Efek Cahaya Berlawanan (Gunakan CSS Variable)
+        // Kita hitung posisi cahaya di sisi berlawanan kursor
+        const lightX = 100 - (x / rect.width) * 100;
+        const lightY = 100 - (y / rect.height) * 100;
+        
+        this.style.setProperty('--light-x', `${lightX}%`);
+        this.style.setProperty('--light-y', `${lightY}%`);
+        this.style.setProperty('--light-opacity', '0.4');
+    });
+
+    // Reset saat kursor keluar
+    card.addEventListener("mouseleave", function () {
+        this.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+        this.style.setProperty('--light-opacity', '0');
+    });
 });
 
-let lastScroll = 0;
-const header = document.querySelector(".main-header");
+    // --- 5. Scroll Header & Mouse Move ---
+    let lastScroll = 0;
+    const header = document.querySelector("header");
 
-window.addEventListener("scroll", () => {
-  const currentScroll = window.scrollY;
+    window.addEventListener("scroll", () => {
+        let currentScroll = window.pageYOffset;
+        if (currentScroll > lastScroll) {
+            header.classList.add("hide");
+        } else {
+            header.classList.remove("hide");
+        }
+        lastScroll = currentScroll;
+    });
 
-  // selalu tampil di paling atas
-  if (currentScroll <= 20) {
-    header.classList.remove("hide");
-    return;
-  }
-
-  // scroll ke bawah = hide
-  if (currentScroll > lastScroll && currentScroll > 100) {
-    header.classList.add("hide");
-  }
-
-  // scroll ke atas = show
-  else if (currentScroll < lastScroll) {
-    header.classList.remove("hide");
-  }
-
-  lastScroll = currentScroll;
+    document.addEventListener("mousemove", (e) => {
+        document.body.style.setProperty("--x", e.clientX + "px");
+        document.body.style.setProperty("--y", e.clientY + "px");
+    });
 });
