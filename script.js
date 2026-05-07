@@ -10,7 +10,7 @@ function typeEffect() {
   if (typingElement && charIndex < text.length) {
     typingElement.innerHTML += text.charAt(charIndex);
     charIndex++;
-    setTimeout(typeEffect, 25);
+    setTimeout(typeEffect, 300);
   }
 }
 
