@@ -305,6 +305,7 @@ section {
   height: auto;
   min-height: 80px;
   font-family: 'Bungee', serif;
+  display : block;
   
   /* glow dasar */
   text-shadow: 0 0 5px rgba(125,211,252,0.3);
