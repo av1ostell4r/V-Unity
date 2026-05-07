@@ -1,116 +1,155 @@
-// --- 1. Typing Effect ---
-const text = "Welcome to V-Unity!";
-let charIndex = 0;
+/**
+ * V-Unity Official Script
+ * Bersih dari syntax error & redundansi
+ */
 
-function typeEffect() {
-  const typingElement = document.getElementById("typing");
-  if (typingElement && charIndex < text.length) {
-    typingElement.innerHTML += text.charAt(charIndex);
-    charIndex++;
-    setTimeout(typeEffect, 200);
-  }
-}
-
-// --- 2. Tab Logic ---
-function showTab(event, type) {
-  const content = document.getElementById("content");
-  const tabs = document.querySelectorAll(".tab");
-
-  // Reset tab aktif
-  tabs.forEach(t => t.classList.remove("active"));
-  if (event && event.currentTarget) {
-    event.currentTarget.classList.add("active");
-  }
-
-  content.innerHTML = "";
-
-  if (type === "Story") {
-    content.innerHTML = `
-      <h2 class="title">Bahasa</h2>
-      <p class="text">
-        V-Unity adalah komunitas VTuber yang lahir dari semangat kolaborasi dan kebersamaan di dunia maya.
-        Kami hadir sebagai wadah bagi para kreator digital dari berbagai latar belakang.
-      </p>
-      <h2 class="title">English</h2>
-      <p class="text">
-        V-Unity is a VTuber community born from the spirit of collaboration and togetherness.
-      </p>
-    `;
-
-    // Styling dinamis
-    content.querySelectorAll(".title").forEach(el => {
-      el.style.color = "#ffffff";
-      el.style.fontSize = "32px";
-      el.style.marginTop = "20px";
-      el.style.fontWeight = "800";
-    });
-
-    content.querySelectorAll(".text").forEach(el => {
-      el.style.lineHeight = "1.7";
-      el.style.fontSize = "18px";
-      el.style.color = "rgba(255,255,255,0.75)";
-      el.style.textAlign = "justify";
-      el.style.margin = "15px auto";
-      el.style.maxWidth = "700px";
-    });
-  } 
-  else if (type === "Sosmed") {
-    content.innerHTML = `
-      <div class="social-list">
-        <a href="#" class="social-item"><i class="fab fa-instagram"></i> <span>Instagram</span></a>
-        <a href="#" class="social-item"><i class="fab fa-x-twitter"></i> <span>X</span></a>
-        <a href="#" class="social-item"><i class="fab fa-discord"></i> <span>Discord</span></a>
-      </div>
-    `;
-  }
-}
-
-// --- 3. Inisialisasi Utama (Gabungan) ---
 document.addEventListener("DOMContentLoaded", () => {
-  // Jalankan efek mengetik
-  typeEffect();
+    
+    // --- 1. Efek Mengetik (Typing Effect) ---
+    const typingText = "Welcome to V-Unity!";
+    const typingElement = document.getElementById("typing");
+    let charIndex = 0;
 
-  // Animasi Masuk Body
-  setTimeout(() => {
-    document.body.classList.remove("fade-in-start");
-  }, 10);
+    function typeEffect() {
+        if (typingElement && charIndex < typingText.length) {
+            typingElement.innerHTML += typingText.charAt(charIndex);
+            charIndex++;
+            setTimeout(typeEffect, 150); // Kecepatan mengetik
+        }
+    }
+    typeEffect();
 
-  // Setup Event Click untuk Tabs
-  const tabs = document.querySelectorAll(".tab");
-  tabs.forEach(tab => {
-    tab.addEventListener("click", function(e) {
-      const type = this.textContent.includes("Backstory") ? "Story" : "Sosmed";
-      showTab(e, type);
+    // --- 2. Animasi Masuk Body ---
+    setTimeout(() => {
+        document.body.classList.remove("fade-in-start");
+    }, 10);
+
+    // --- 3. Logika Tab (Backstory & Sosmed) ---
+    const contentBox = document.getElementById("content");
+    const tabs = document.querySelectorAll(".tab");
+
+    function renderTabContent(type) {
+        if (!contentBox) return;
+
+        contentBox.innerHTML = ""; // Bersihkan konten lama
+
+        if (type === "Story") {
+            contentBox.innerHTML = `
+                <div class="fade-in-content">
+                    <h2 class="dynamic-title">Bahasa</h2>
+                    <p class="dynamic-text">
+                        V-Unity adalah komunitas VTuber yang lahir dari semangat kolaborasi dan kebersamaan di dunia maya.
+                        Kami hadir sebagai wadah bagi para kreator digital dari berbagai latar belakang — mulai dari VTuber,
+                        streamer, artist, video editor, hingga vocal mixer — untuk tumbuh, berkarya, dan saling mendukung.
+                    </p>
+                    <h2 class="dynamic-title">English</h2>
+                    <p class="dynamic-text">
+                        V-Unity is a VTuber community born from the spirit of collaboration and togetherness.
+                        We serve as a platform for creators from various backgrounds to grow and support each other.
+                    </p>
+                </div>
+            `;
+        } else if (type === "Sosmed") {
+            contentBox.innerHTML = `
+                <div class="social-list fade-in-content">
+                    <a href="https://instagram.com/v.unityy" target="_blank" class="social-item">
+                        <i class="fab fa-instagram"></i> <span>Instagram</span>
+                    </a>
+                    <a href="https://www.x.com/@V_Unityy" target="_blank" class="social-item">
+                        <i class="fab fa-x-twitter"></i> <span>X</span>
+                    </a>
+                    <a href="https://discord.gg/qFfgFuskex" target="_blank" class="social-item">
+                        <i class="fab fa-discord"></i> <span>Discord</span>
+                    </a>
+                    <a href="https://www.youtube.com/@V-Unity5" target="_blank" class="social-item">
+                        <i class="fab fa-youtube"></i> <span>YouTube</span>
+                    </a>
+                </div>
+            `;
+        }
+    }
+
+    // Pasang Event Listener ke tombol Tab
+    tabs.forEach(tab => {
+        tab.addEventListener("click", function(e) {
+            // Hapus class active dari semua tab
+            tabs.forEach(t => t.classList.remove("active"));
+            // Tambah class active ke yang diklik
+            this.classList.add("active");
+
+            // Cek tipe berdasarkan teks
+            const type = this.textContent.includes("Backstory") ? "Story" : "Sosmed";
+            renderTabContent(type);
+        });
     });
-  });
 
-  // Default buka Story
-  if (tabs[0]) showTab({ currentTarget: tabs[0] }, "Story");
+    // Default: Buka tab pertama (Backstory) saat pertama load
+    if (tabs[0]) {
+        tabs[0].classList.add("active");
+        renderTabContent("Story");
+    }
 
-  // Logic Mouse Move untuk latar belakang (CSS Variables)
-  document.addEventListener("mousemove", (e) => {
-    document.body.style.setProperty("--x", e.clientX + "px");
-    document.body.style.setProperty("--y", e.clientY + "px");
-  });
+    // --- 4. Efek Hover 3D pada Talent Card ---
+    const talentCards = document.querySelectorAll(".talent-card");
+    talentCards.forEach(card => {
+        card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
 
-  // Logic Talent Cards
-  const talentCards = document.querySelectorAll(".talent-card");
-  talentCards.forEach(card => {
-    card.addEventListener("mousemove", (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
 
-      const rotateX = ((y - centerY) / centerY) * -10;
-      const rotateY = ((x - centerX) / centerX) * 10;
+            const rotateX = ((y - centerY) / centerY) * -12;
+            const rotateY = ((x - centerX) / centerX) * 12;
 
-      card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+            
+            // Efek cahaya (spotlight)
+            card.style.setProperty('--light-x', `${100 - (x / rect.width) * 100}%`);
+            card.style.setProperty('--light-y', `${100 - (y / rect.height) * 100}%`);
+            card.style.setProperty('--light-opacity', '0.4');
+        });
+
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+            card.style.setProperty('--light-opacity', '0');
+        });
+
+        // Logika Klik Card (Redirect)
+        card.addEventListener("click", function() {
+            if (this.classList.contains("locked")) {
+                this.classList.add("locked-shake");
+                setTimeout(() => this.classList.remove("locked-shake"), 500);
+            } else {
+                const page = this.dataset.page;
+                if (page) {
+                    document.body.classList.add("fade-out");
+                    setTimeout(() => { window.location.href = page; }, 300);
+                }
+            }
+        });
     });
 
-    card.addEventListener("mouseleave", () => {
-      card.style.transform = `perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)`;
+    // --- 5. Scroll Header & Mouse Spotlight Body ---
+    let lastScroll = 0;
+    const header = document.querySelector("header");
+
+    window.addEventListener("scroll", () => {
+        let currentScroll = window.pageYOffset;
+        if (header) {
+            if (currentScroll > lastScroll && currentScroll > 50) {
+                header.classList.add("hide");
+            } else {
+                header.classList.remove("hide");
+            }
+        }
+        lastScroll = currentScroll;
     });
-  });
+
+    document.addEventListener("mousemove", (e) => {
+        document.body.style.setProperty("--x", e.clientX + "px");
+        document.body.style.setProperty("--y", e.clientY + "px");
+    });
+
 });
