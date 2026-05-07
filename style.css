@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Grotesk:wght@400;600&family=Nunito:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@400;500;600;700&family=Palanquin:wght@300;400;500&display=swap');
 
 :root {
   --base: #16131c;
@@ -10,11 +10,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Palanquin', sans-serif;
 }
 
 p, .text {
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Palanquin', sans-serif;
   font-weight: 300;
   line-height: 1.7;
 }
@@ -207,7 +207,7 @@ header.hide {
 
 .social-item span {
   font-size: 25px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Palanquin', sans-serif;
 }
 
 .social-item:hover i,
@@ -263,8 +263,8 @@ nav a {
   text-decoration: none;
   color: white;
   font-size: 23px;
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 600;
+  font-family: 'Palanquin Dark', sans-serif;
+  font-weight: 500;
 }
 
 nav a:hover { color: #7dd3fc; }
@@ -305,15 +305,14 @@ section {
 
 .typing {
   color: #7dd3fc;
-  font-size: 3.5rem;   /* ✅ smaller so it fits in one line */
+  font-size: 5rem;
   height: auto;
   min-height: 80px;
   display: block;
-  font-family: 'Syne', sans-serif;
-  font-weight: 800;
+  font-family: 'Palanquin Dark', sans-serif;
+  font-weight: 700;
   letter-spacing: -1px;
   text-shadow: 0 0 5px rgba(125,211,252,0.3);
-  white-space: nowrap; /* ✅ forces it to stay on one line */
 }
 
 .typing::before {
@@ -338,7 +337,7 @@ section {
 
 .text {
   color: #7dd3fc;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Palanquin', sans-serif;
   font-weight: 300;
 }
 
@@ -349,7 +348,7 @@ section {
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Palanquin', sans-serif;
 }
 
 .tabs {
@@ -379,8 +378,8 @@ section {
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(96, 13, 249, 0.402);
   transition: all 0.3s cubic-bezier(0.25, 1.5, 0.5, 1);
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 600;
+  font-family: 'Palanquin', sans-serif;
+  font-weight: 500;
 }
 
 .tab.active { 
@@ -423,13 +422,7 @@ section {
   color: black;
   border-radius: 8px;
   text-decoration: none;
-  font-family: 'Space Grotesk', sans-serif;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Palanquin', sans-serif;
 }
 
 #talent {
@@ -447,8 +440,8 @@ footer {
 
 .subtitle {
   font-size: 85px;
-  font-family: 'Syne', sans-serif;
-  font-weight: 800;
+  font-family: 'Palanquin Dark', sans-serif;
+  font-weight: 700;
   letter-spacing: -2px;
 }
 
@@ -691,7 +684,7 @@ footer {
   letter-spacing: 3px;
   opacity: 0.8;
   transition: 0.3s ease;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Palanquin', sans-serif;
 }
 
 .talent-card:hover .sub {
@@ -704,7 +697,7 @@ footer {
 
 .glass-card h2 {
   font-size: 28px;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Palanquin Dark', sans-serif;
   font-weight: 700;
   transition: 0.3s ease;
 }
