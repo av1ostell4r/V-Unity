@@ -302,7 +302,8 @@ section {
 .typing {
   color: var(--baby-blue);
   font-size: 5rem;
-  height: 40px;
+  height: auto;
+  min-height: 80px;
   font-family: 'Bungee', serif;
   
   /* glow dasar */
