@@ -305,7 +305,7 @@ section {
 
 .typing {
   color: #7dd3fc;
-  font-size: 5rem;
+  font-size: clamp(2rem, 5vw, 5rem); /* ✅ auto scales with screen size */
   height: auto;
   min-height: 80px;
   display: block;
@@ -313,6 +313,7 @@ section {
   font-weight: 800;
   letter-spacing: -1px;
   text-shadow: 0 0 5px rgba(125,211,252,0.3);
+  white-space: nowrap;
 }
 
 .typing::before {
