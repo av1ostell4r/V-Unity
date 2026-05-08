@@ -50,7 +50,7 @@ function showTab(event, type) {
       el.style.fontSize = "52px";
       el.style.marginTop = "20px";
       el.style.marginTop = "50px";
-      el.style.fontFamily = "Palanquin Dark:;
+       el.style.fontFamily = "'Palanquin Dark', sans-serif";
     });
 
     content.querySelectorAll(".text").forEach(el => {
