@@ -78,6 +78,10 @@ header {
   z-index: 1000;
 }
 
+header.hide {
+  transform: translateY(-100%);
+}
+
 .logo {
   max-width: 70px;
   width: 100%;
