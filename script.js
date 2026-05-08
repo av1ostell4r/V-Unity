@@ -210,21 +210,20 @@ talentCards.forEach(card => {
 });
 
     // --- 5. Scroll Header & Mouse Move ---
-let lastScroll = 0;
+// SESUDAH
+let lastScroll = window.pageYOffset || 0;
+const header = document.querySelector("header");
 
-window.addEventListener('scroll', () => {
-  const currentScroll = window.scrollY;
+window.addEventListener("scroll", () => {
+    let currentScroll = window.pageYOffset;
 
-  if (currentScroll > lastScroll && currentScroll > 80) {
-    // Scroll ke bawah → sembunyikan header
-    header.classList.add('hide');
-  } else {
-    // Scroll ke atas → tampilkan header
-    header.classList.remove('hide');
-  }
+    if (currentScroll > lastScroll && currentScroll > 80) {
+        header.classList.add("hide");
+    } else {
+        header.classList.remove("hide");
+    }
 
-  lastScroll = currentScroll;
-});
+    lastScroll = currentScroll <= 0 ? 0 : currentScroll;
 });
 
 
