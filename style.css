@@ -7,7 +7,7 @@ h2 {
   font-family: 'Cal Sans', sans-serif;
   font-weight: 400;
   line-height: 1.2;
-  color: #0b1f19;
+  color: #0b0d14;
 }
 
 h2.subtitle {
@@ -121,24 +121,41 @@ body, p, span, a, .social-item {
 .tabs {
   display: flex;
   justify-content: center;
-  gap: 18px;
+  gap: 28px;
   margin-top: 25px;
+  margin-bottom: 35px;
 }
 
 .tab {
-  padding: 14px 32px;        /* increase top/bottom for more height */
-  font-size: 1rem;
-  margin: 0 10px;            /* increase gap between buttons */
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s, color 0.3s;
+  position: relative;
+  width: 280px;
+  height: 72px;
 
-  border: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  border-radius: 18px;
+  border: 2px solid rgba(255,255,255,0.12);
+
+  color: white;
+  font-size: 20px;
+  font-family: 'Palanquin Dark', sans-serif;
+  cursor: pointer;
 
   background: linear-gradient(
     135deg,
-    rgba(125, 211, 252, 0.18),
-    rgba(167, 139, 250, 0.18)
+    rgba(18, 24, 45, 0.95),
+    rgba(43, 22, 78, 0.95)
+  );
+
+  box-shadow:
+    inset 0 0 18px rgba(255,255,255,0.03),
+    0 0 12px rgba(125,211,252,0.18);
+
+  transition: all 0.35s ease;
+  overflow: hidden;
   );
 
   color: #eaf6ff;
@@ -151,24 +168,46 @@ body, p, span, a, .social-item {
   font-family: 'Palanquin Dark', sans-serif;
 }
 
-.tab:hover {
-  transform: translateY(-6px) scale(1.04);
+.tab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
 
   background: linear-gradient(
-    135deg,
-    rgba(125, 211, 252, 0.35),
-    rgba(167, 139, 250, 0.35)
+    90deg,
+    #38bdf8,
+    transparent 30%,
+    transparent 70%,
+    #c084fc
   );
 
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.tab:hover {
+  transform: translateY(-6px) scale(1.04);
   box-shadow:
-    0 10px 30px rgba(125, 211, 252, 0.25),
-    0 0 25px rgba(167, 139, 250, 0.25);
+    0 10px 28px rgba(125,211,252,0.25),
+    0 0 18px rgba(192,132,252,0.18);
 }
 
 .tab.active {
-  background: linear-gradient(135deg, #7dd3fc, #a78bfa);
-  color: #111827;
-  box-shadow: 0 0 25px rgba(125,211,252,0.5);
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 70, 1),
+    rgba(62, 28, 102, 1)
+  );
+
+  box-shadow:
+    0 0 18px rgba(125,211,252,0.35),
+    0 0 24px rgba(192,132,252,0.2);
 }
 
 .social-list {
