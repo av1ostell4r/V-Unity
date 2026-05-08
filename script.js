@@ -161,23 +161,22 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => circle.remove(), 600);
     });
 
-    // --- 6. Scroll Header ---
-// --- 6. Scroll Header ---
-// --- 6. Scroll Header ---
-let lastScroll = window.pageYOffset || 0;
+let lastScroll = 0;
 const header = document.querySelector("header");
 
 window.addEventListener("scroll", () => {
     const currentScroll = window.pageYOffset;
 
     if (currentScroll <= 0) {
-        // Paling atas → selalu tampil
         header.classList.remove("hide");
-    } else if (currentScroll > lastScroll) {
-        // Scroll ke bawah → sembunyikan
+        return;
+    }
+
+    if (Math.abs(currentScroll - lastScroll) < 5) return;
+
+    if (currentScroll > lastScroll) {
         header.classList.add("hide");
-    } else if (currentScroll < lastScroll) {
-        // Scroll ke atas → tampilkan
+    } else {
         header.classList.remove("hide");
     }
 
