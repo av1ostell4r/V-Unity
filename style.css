@@ -371,10 +371,6 @@ section {
   font-size: 23px;
 }
 
-#Talent h2.subtitle {
-  color: #ffffff !important;
-}
-
 nav {
   display: flex;
   justify-content: center; /* Menengahkan secara horizontal */
