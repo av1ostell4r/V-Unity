@@ -162,18 +162,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // --- 6. Scroll Header ---
-    let lastScroll = window.pageYOffset || 0;
-    const header = document.querySelector("header");
+// --- 6. Scroll Header ---
+let lastScroll = window.pageYOffset || 0;
+const header = document.querySelector("header");
 
-    window.addEventListener("scroll", () => {
-        const currentScroll = window.pageYOffset;
-        if (currentScroll > lastScroll && currentScroll > 80) {
-            header.classList.add("hide");
-        } else {
-            header.classList.remove("hide");
-        }
-        lastScroll = currentScroll <= 0 ? 0 : currentScroll;
-    });
+window.addEventListener("scroll", () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll <= 0) {
+        // Paling atas → selalu tampil
+        header.classList.remove("hide");
+    } else if (currentScroll > lastScroll) {
+        // Scroll ke bawah → sembunyikan
+        header.classList.add("hide");
+    } else if (currentScroll < lastScroll) {
+        // Scroll ke atas → tampilkan
+        header.classList.remove("hide");
+    }
+
+    lastScroll = currentScroll;
+});
 
     // --- 7. Mouse Glow ---
     document.addEventListener("mousemove", (e) => {
