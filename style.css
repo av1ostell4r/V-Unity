@@ -3,11 +3,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap');
 
 /* TITLE */
-h1, h2 {
+h2 {
   font-family: 'Cal Sans', sans-serif;
   font-weight: 400;
   line-height: 1.2;
-  color :#0b0d14;
+}
+
+h2.Title{
+  font-family: 'Cal Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  color : #0b0d14;
 }
 
 h2.subtitle {
