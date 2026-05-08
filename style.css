@@ -201,24 +201,27 @@ body, p, span, a, .social-item {
 }
 
 .social-item {
-  width: 72px;
-  height: 72px;
-  border-radius: 14px;
+  width: 88px;
+  height: 88px;
+  border-radius: 18px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   color: white;
-  font-size: 28px;
+  font-size: 34px;
   position: relative;
   transition: all 0.3s ease;
-  border: 1px solid transparent;
 
+  border: 1px solid transparent;
   background:
     linear-gradient(#13101e, #13101e) padding-box,
     linear-gradient(135deg, #7dd3fc, #f472b6) border-box;
 
   overflow: hidden;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .social-item::after {
@@ -250,8 +253,12 @@ body, p, span, a, .social-item {
     0 0 14px 4px rgba(244,114,182,0.65);
 }
 
-.social-item i {
-  font-size: 28px;
+.social-list {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 25px;
   transition: transform 0.3s ease;
 }
 
