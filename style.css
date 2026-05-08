@@ -81,10 +81,6 @@ header {
   transition: transform 0.3s ease;
 }
 
-header.hide {
-  transform: translateY(-100%);
-}
-
 .finisher-header {
   position: absolute;
   top: 0;
