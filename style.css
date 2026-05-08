@@ -73,7 +73,7 @@ header {
   top: 0;
   left: 0;
   background: linear-gradient(to bottom, rgba(64,38,76,0.872), #4a248654);
-  padding: 15px 30px;
+  padding: 8px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -352,9 +352,11 @@ h2.subtitle {
 
 .social-item:hover {
   transform: translateY(-6px);
+  background: #7dd3fc;
+  border-color: #7dd3fc;
   box-shadow:
-    0 10px 28px rgba(125,211,252,0.15),
-    0 10px 28px rgba(244,114,182,0.15);
+    0 10px 28px rgba(125,211,252,0.35),
+    0 10px 28px rgba(125,211,252,0.2);
 }
 
 .social-item:hover::after {
@@ -375,15 +377,9 @@ h2.subtitle {
 
 .social-item:hover i,
 .social-item:hover span {
-  color: #ffffff;
-  text-shadow:
-    0 0 10px rgba(255,255,255,0.8),
-    0 0 20px rgba(190,144,223,0.5);
+  color: #0b0d14;
+  text-shadow: none;
   transform: scale(1.05);
-}
-
-.social-item:hover {
-  background: rgba(125,211,252,0.2);
 }
 
 .social-item.active {
