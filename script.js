@@ -163,6 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // --- 6. Scroll Header ---
 // --- 6. Scroll Header ---
+// --- 6. Scroll Header ---
 let lastScroll = window.pageYOffset || 0;
 const header = document.querySelector("header");
 
