@@ -113,7 +113,7 @@ header.hide {
   overflow: hidden;
 }
 
-body, p, span, a, .tab, .social-item {
+body, p, span, a, .social-item {
   font-family: 'Palanquin', sans-serif;
 }
 
@@ -146,8 +146,7 @@ body, p, span, a, .tab, .social-item {
   box-shadow:
     0 0 18px rgba(125, 211, 252, 0.15),
     inset 0 0 12px rgba(255,255,255,0.04);
-
-  transition: all 0.35s ease;
+  
   font-family: 'Palanquin Dark', sans-serif;
 }
 
