@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // kasih event ke semua tab
   tabs.forEach(tab => {
     tab.addEventListener("click", function (e) {
-      const type = this.textContent.includes("Backstory") ? "Story" : "Sosmed";
+      const type = this.textContent.includes("About Us") ? "Story" : "Sosmed";
       showTab(e, type);
     });
   });
