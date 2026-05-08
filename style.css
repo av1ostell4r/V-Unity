@@ -121,35 +121,32 @@ body, p, span, a, .social-item {
 .tabs {
   display: flex;
   justify-content: center;
-  gap: 28px;
-  margin-top: 25px;
-  margin-bottom: 35px;
+  gap: 24px;
+  margin-top: 30px;
+  flex-wrap: wrap;
 }
 
 .tab {
-  padding: 16px 48px;
-  border-radius: 10px;
+  min-width: 280px;      /* tombol lebih panjang */
+  padding: 18px 55px;    /* lebih tinggi + lega kiri kanan */
+  border-radius: 12px;
   cursor: pointer;
-  border: 1px solid rgba(125, 180, 252, 0.35);
-  background: rgba(30, 22, 50, 0.6);
-  color: #e0e8ff;
-  backdrop-filter: blur(14px);
-  box-shadow:
-    0 0 0 1px rgba(125,180,252,0.08) inset,
-    0 0 18px rgba(100,80,180,0.15);
+  font-size: 20px;
   font-family: 'Cal Sans', sans-serif;
-  font-size: 18px;
+  color: #e0d4f5;
   transition: all 0.3s ease;
-  );
+  outline: none;
+  position: relative;
+  border: 1px solid transparent;
 
-  color: #eaf6ff;
-  backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;             /* jarak icon & text */
 
-  box-shadow:
-    0 0 18px rgba(125, 211, 252, 0.15),
-    inset 0 0 12px rgba(255,255,255,0.04);
-  
-  font-family: 'Palanquin Dark', sans-serif;
+  background:
+    linear-gradient(#16131c, #16131c) padding-box,
+    linear-gradient(135deg, #7dd3fc, #f472b6) border-box;
 }
 
 .tab::before {
