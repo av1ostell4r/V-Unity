@@ -210,23 +210,20 @@ talentCards.forEach(card => {
 });
 
     // --- 5. Scroll Header & Mouse Move ---
-    let lastScroll = 0;
-    const header = document.querySelector("header");
+let lastScroll = 0;
 
-    window.addEventListener("scroll", () => {
-        let currentScroll = window.pageYOffset;
-        if (currentScroll > lastScroll) {
-            header.classList.add("hide");
-        } else {
-            header.classList.remove("hide");
-        }
-        lastScroll = currentScroll;
-    });
+window.addEventListener('scroll', () => {
+  const currentScroll = window.scrollY;
 
-    document.addEventListener("mousemove", (e) => {
-        document.body.style.setProperty("--x", e.clientX + "px");
-        document.body.style.setProperty("--y", e.clientY + "px");
-    });
+  if (currentScroll > lastScroll && currentScroll > 80) {
+    // Scroll ke bawah → sembunyikan header
+    header.classList.add('hide');
+  } else {
+    // Scroll ke atas → tampilkan header
+    header.classList.remove('hide');
+  }
+
+  lastScroll = currentScroll;
 });
 
 // --- 6. Finisher Header ---
