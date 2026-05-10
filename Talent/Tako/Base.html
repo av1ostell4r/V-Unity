@@ -30,7 +30,7 @@
 <nav class="navbar">
   <div class="navbar__left">
     <div class="navbar__logo-box">
-      <img src="../Tako/Pict/Logo.png" class="logo" oncontextmenu="return false" onerror="this.style.display='none'">
+      <img src="../Tako/Pict/Logo.png" class="nav-logo-img" oncontextmenu="return false">
     </div>
     <span class="navbar__brand">Humanoid Octopus</span>
   </div>
@@ -41,19 +41,18 @@
   </div>
 </nav>
 
-<!-- MAIN LAYOUT -->
+<!-- MAIN PAGE -->
 <div class="page-layout">
 
   <!-- SIDEBAR AVATAR -->
   <aside class="sidebar">
     <div class="av on" title="Hyoumonmaru Tako">
-      <img src="../Tako/Pict/Logo.png" onerror="this.style.display='none'">
-      <span class="av__fallback">HT</span>
+      <img src="../Tako/Pict/Logo.png" oncontextmenu="return false" onerror="this.style.display='none'">
     </div>
-    <div class="av" title="Character 2"><span class="av__fallback">C2</span></div>
-    <div class="av" title="Character 3"><span class="av__fallback">C3</span></div>
-    <div class="av" title="Character 4"><span class="av__fallback">C4</span></div>
-    <div class="av" title="Character 5"><span class="av__fallback">C5</span></div>
+    <div class="av" title="Character 2"></div>
+    <div class="av" title="Character 3"></div>
+    <div class="av" title="Character 4"></div>
+    <div class="av" title="Character 5"></div>
   </aside>
 
   <!-- CENTER: CHARACTER VIEWER -->
@@ -78,23 +77,21 @@
     </div>
   </div>
 
-  <!-- RIGHT: BIODATA -->
+  <!-- RIGHT PANEL: BIODATA -->
   <div class="right-panel">
 
-    <!-- Name Block -->
     <div class="name-block">
       <span class="name-tag">VTuber</span>
       <h1 class="name">Hyoumonmaru Tako</h1>
       <p class="name-alias">Nickname: Tako / Hyou</p>
       <div class="status-row">
-        <div class="status">● ACTIVE</div>
-        <div class="status status--indie">● INDIE</div>
+        <span class="status">● ACTIVE</span>
+        <span class="status status--indie">● INDIE</span>
       </div>
     </div>
 
     <div class="divider"></div>
 
-    <!-- Info Grid -->
     <div class="info-grid">
       <div class="box">
         <span>Nicknames</span>
@@ -116,7 +113,6 @@
 
     <div class="divider"></div>
 
-    <!-- Social Media -->
     <div class="social-section">
       <p class="social-label">Official Socials</p>
       <div class="social">
@@ -130,7 +126,6 @@
 
     <div class="divider"></div>
 
-    <!-- Tabs -->
     <div class="mid-btn">
       <div class="btn active" onclick="showTab(event, 'debut-video')">Debut Video</div>
       <div class="btn" onclick="showTab(event, 'char-sheet')">Charsheet</div>
@@ -140,7 +135,7 @@
   </div>
 </div>
 
-<!-- TAB CONTENT AREA -->
+<!-- TAB CONTENT -->
 <div class="content-view">
   <div id="debut-video" class="tab-content active">
     <div class="box full">
