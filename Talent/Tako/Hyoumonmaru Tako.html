@@ -35,33 +35,32 @@
     <span class="navbar__brand">Humanoid Octopus</span>
   </div>
   <div class="navbar__links">
-    <a href="#">About</a>
-    <a href="#">Talents</a>
-    <a href="#">Contact</a>
+    <a href="#section-about">About</a>
+    <a href="#section-talent">Talents</a>
+    <a href="#section-contact">Contact</a>
   </div>
 </nav>
+
+<!-- SECTION: TALENT (karakter viewer) -->
+<section id="section-talent">
 
 <!-- MAIN PAGE -->
 <div class="page-layout">
 
   <!-- SIDEBAR AVATAR -->
-  <!-- 
-    Cara pakai: ganti src foto crop masing-masing karakter.
-    Format crop disarankan: persegi 1:1, fokus wajah/setengah badan.
-    Contoh path: ../NamaKarakter/Pict/crop.png
-    data-char = id karakter yang akan ditampilkan
-  -->
   <aside class="sidebar">
     <div class="av on" data-char="tako" title="Hyoumonmaru Tako">
-      <img src="../Tako/Pict/Tako_crop.png" oncontextmenu="return false" onerror="this.style.display='none'">
+      <img src="../Tako/Pict/Tako_crop.png" oncontextmenu="return false" onerror="this.src='../Tako/Pict/Tako.png'">
     </div>
-    <!-- Tambahkan karakter lain di sini, contoh: -->
-    <!-- <div class="av" data-char="char2" title="Nama Karakter 2">
-      <img src="../Char2/Pict/crop.png" oncontextmenu="return false" onerror="this.style.display='none'">
-    </div> -->
-    <div class="av av--empty" title="Coming Soon"></div>
-    <div class="av av--empty" title="Coming Soon"></div>
-    <div class="av av--empty" title="Coming Soon"></div>
+    <div class="av" data-char="seiko" title="Seiko Hato">
+      <img src="../Seiko/Pict/Seiko_crop.png" oncontextmenu="return false" onerror="this.src='../Seiko/Pict/Seiko.png'">
+    </div>
+    <div class="av" data-char="agashi" title="Agashi Sanma">
+      <img src="../Agashi/Pict/Agashi_crop.png" oncontextmenu="return false" onerror="this.src='../Agashi/Pict/Agashi.png'">
+    </div>
+    <div class="av" data-char="hakumi" title="Hakumi Ishiki">
+      <img src="../Hakumi/Pict/Hakumi_crop.png" oncontextmenu="return false" onerror="this.src='../Hakumi/Pict/Hakumi.png'">
+    </div>
     <div class="av av--empty" title="Coming Soon"></div>
   </aside>
 
@@ -69,7 +68,7 @@
   <div class="center-panel">
     <div class="image-container" id="zoomContainer">
       <img src="../Tako/Pict/Tako.png" id="avatar" oncontextmenu="return false">
-      <button id="closeFullscreen" class="fs-close-btn">
+      <button id="closeFullscreen">
         <span class="material-symbols-outlined">close</span>
       </button>
     </div>
@@ -85,12 +84,12 @@
   <div class="right-panel">
 
     <div class="name-block">
-      <span class="name-tag">VTuber</span>
+      <span class="name-tag" id="char-type">VTuber</span>
       <h1 class="name" id="char-name">Hyoumonmaru Tako</h1>
       <p class="name-alias" id="char-alias">Nickname: Tako / Hyou</p>
       <div class="status-row">
         <span class="status">● ACTIVE</span>
-        <span class="status status--indie">● INDIE</span>
+        <span class="status status--indie" id="char-affil">● INDIE</span>
       </div>
     </div>
 
@@ -107,7 +106,7 @@
 
     <div class="social-section">
       <p class="social-label">Official Socials</p>
-      <div class="social">
+      <div class="social" id="social-icons">
         <img src="./Pict/X.png"  class="icon" data-link="https://www.x.com/hyomonmaru_tako">
         <img src="./Pict/IG.png" class="icon" data-link="https://www.instagram.com/hyoumonmaru_tako">
         <img src="./Pict/YT.png" class="icon" data-link="https://youtube.com/@HyoumonmaruTako">
@@ -118,45 +117,59 @@
 
     <div class="divider"></div>
 
-    <!-- TAB BUTTONS -->
     <div class="mid-btn">
       <div class="btn active" onclick="showTab(event,'debut-video')">Debut Video</div>
       <div class="btn" onclick="showTab(event,'char-sheet')">Charsheet</div>
       <div class="btn" onclick="showTab(event,'story')">Story</div>
     </div>
 
-  </div>
-</div>
+    <!-- TAB CONTENT (di dalam right panel) -->
+    <div class="tab-area">
 
-<!-- TAB CONTENT AREA -->
-<div class="content-view">
-
-  <div id="debut-video" class="tab-content active">
-    <div class="box full">
-      <a href="https://www.youtube.com/watch?v=mlG97WnpJaU" target="_blank">
-        <div class="thumbnail-container">
-          <img src="https://i.ytimg.com/vi/mlG97WnpJaU/maxresdefault.jpg" class="yt-thumb">
-          <div class="play-button"><span class="play-icon">▶</span></div>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <div id="char-sheet" class="tab-content">
-    <div class="box full">
-      <div class="charsheet-grid">
-        <img src="../Tako/Pict/Tako Sheet.png" class="sheet-img" oncontextmenu="return false">
+      <div id="debut-video" class="tab-content active">
+        <a id="debut-link" href="https://www.youtube.com/watch?v=mlG97WnpJaU" target="_blank">
+          <div class="thumbnail-container">
+            <img id="yt-thumb" src="https://i.ytimg.com/vi/mlG97WnpJaU/maxresdefault.jpg" class="yt-thumb">
+            <div class="play-button"><span class="play-icon">▶</span></div>
+          </div>
+        </a>
       </div>
-    </div>
-  </div>
 
-  <div id="story" class="tab-content">
-    <div class="box full">
-      <p id="char-story">Seekor gurita yang berevolusi karna kotornya banyak pantai di Indonesia dan ketika evolusi nya sampai tingkat terakhir dia mendapati dirinya di pinggir pantai Jepang</p>
-    </div>
-  </div>
+      <div id="char-sheet" class="tab-content">
+        <div class="charsheet-grid">
+          <img id="sheet-img" src="../Tako/Pict/Tako Sheet.png" class="sheet-img" oncontextmenu="return false">
+        </div>
+      </div>
 
-</div>
+      <div id="story" class="tab-content">
+        <div class="story-box">
+          <p id="char-story">Seekor gurita yang berevolusi karna kotornya banyak pantai di Indonesia dan ketika evolusi nya sampai tingkat terakhir dia mendapati dirinya di pinggir pantai Jepang</p>
+        </div>
+      </div>
+
+    </div><!-- end tab-area -->
+
+  </div><!-- end right-panel -->
+</div><!-- end page-layout -->
+
+</section><!-- end section-talent -->
+
+<!-- SECTION: ABOUT -->
+<section id="section-about" class="section-about">
+  <div class="section-inner">
+    <h2 class="section-title">About</h2>
+    <p class="section-text">Humanoid Octopus adalah sebuah unit VTuber indie yang terdiri dari para kreator konten dengan karakter unik bertema laut. Kami hadir untuk menghibur, berbagi cerita, dan membangun komunitas yang hangat bersama kalian.</p>
+  </div>
+</section>
+
+<!-- SECTION: CONTACT -->
+<section id="section-contact" class="section-contact">
+  <div class="section-inner">
+    <h2 class="section-title">Contact</h2>
+    <p class="section-text">Untuk kolaborasi, pertanyaan, atau hal lainnya, silakan hubungi kami melalui email atau media sosial resmi masing-masing talent.</p>
+    <p class="section-email">📧 humanoidoctopus@email.com</p>
+  </div>
+</section>
 
 <script src="./script.js"></script>
 </body>
