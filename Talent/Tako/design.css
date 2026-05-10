@@ -26,10 +26,23 @@ body {
 .orb3 { width:220px;height:220px;background:rgba(0,180,255,0.1);top:45%;left:45%;animation:orbFloat 11s ease-in-out infinite; }
 @keyframes orbFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
 
-.wave-svg { position:absolute;bottom:0;left:0;width:200%; }
-.wave-svg--1{height:120px;animation:waveMov 8s linear infinite;}
-.wave-svg--2{height:100px;animation:waveMov 12s linear infinite reverse;opacity:.5;}
-.wave-svg--3{height:80px;animation:waveMov 6s linear infinite;opacity:.3;}
+.wave-svg--1{
+  height:220px;
+  animation:waveMov 8s linear infinite;
+}
+
+.wave-svg--2{
+  height:180px;
+  animation:waveMov 12s linear infinite reverse;
+  opacity:.5;
+}
+
+.wave-svg--3{
+  height:150px;
+  animation:waveMov 6s linear infinite;
+  opacity:.35;
+}
+
 @keyframes waveMov { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
 /* ===================== NAVBAR ===================== */
@@ -208,7 +221,16 @@ body {
 .full { grid-column:span 2; }
 
 .social-section {}
-.social-label { font-size:10px;color:#1e3a6e;letter-spacing:.07em;text-transform:uppercase;margin-bottom:8px; }
+
+.social-label {
+  font-size:11px;
+  color:#7dd3fc;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  margin-bottom:8px;
+  font-weight:600;
+}
+
 .social { display:flex;gap:12px;flex-wrap:wrap;align-items:center; }
 .icon {
   width:26px;height:26px;object-fit:contain;cursor:pointer;
