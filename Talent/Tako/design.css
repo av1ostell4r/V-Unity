@@ -152,11 +152,14 @@ body {
 
 /* ===================== RIGHT PANEL ===================== */
 .right-panel {
-  width: 300px; flex-shrink: 0;
-  background: rgba(3,8,22,0.8);
-  border-left: 0.5px solid rgba(20,100,230,0.15);
-  padding: 20px 16px;
-  display: flex; flex-direction: column; gap: 11px;
+  width: 420px;
+  flex-shrink: 0;
+  background: rgba(3,8,22,0.88);
+  border-left: 0.5px solid rgba(20,100,230,0.18);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
   overflow-y: auto;
 }
 
@@ -193,7 +196,14 @@ body {
   content:"";position:absolute;top:0;left:0;width:100%;height:1.5px;
   background:linear-gradient(to right,transparent,var(--base),transparent);
 }
-.box span { font-size:10px;color:#1e3a6e;letter-spacing:.07em;text-transform:uppercase; }
+
+.box span {
+  font-size: 11px;
+  color: #7dd3fc;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
 .box p { margin-top:4px;font-size:13px;color:#93c5fd; }
 .full { grid-column:span 2; }
 
