@@ -6,9 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap" rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Palanquin:wght@300;400;500;600&family=Palanquin+Dark:wght@700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Palanquin:wght@300;400;500;600&family=Palanquin+Dark:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
 
@@ -33,21 +31,20 @@
   </section>
 
   <section id="about">
-
     <div class="tabs">
       <div class="tab active" onclick="showTab(event, 'Story')">About Us</div>
       <div class="tab" onclick="showTab(event, 'Sosmed')">Social Media</div>
     </div>
-
     <div id="content"></div>
-
   </section>
 
   <section id="Talent" class="talent">
     <h2 class="subtitle">Talent</h2>
 
     <div class="row top">
-      <div class="talent-card blue" data-page="Talent/index.html">
+
+      <!-- Tako -->
+      <div class="talent-card blue" data-page="Talent/index (1).html?char=tako">
         <img src="Talent/Tako/Pict/Tako_crop.png" oncontextmenu="return false">
         <div class="glass-card blue">
           <p class="sub"><strong>• 冰門丸たこ •</strong></p>
@@ -55,44 +52,48 @@
         </div>
       </div>
 
-      <div class="talent-card red" data-page="Talent/index.html?char=seiko">
-        <img src="Talent/Seiko/Pict/Seiko_crop.png" oncontextmenu="return false">
+      <!-- Seiko -->
+      <div class="talent-card red" data-page="Talent/index (1).html?char=seiko">
+        <img src="Talent/Seiko/Seiko_crop.png" oncontextmenu="return false">
         <div class="glass-card red">
           <p class="sub"><strong>• セイコハト •</strong></p>
           <h2>Seiko Hato</h2>
         </div>
       </div>
 
-      <div class="talent-card green locked" data-page="Talent/index.html?char=reiji">
-        <img src="Talent/Reiji/Pict/Reiji_solid_crop.png" oncontextmenu="return false">
-
-        <div class="lock-overlay"><img src="../Talent/Reiji/Pict/Lock.png"></div>
-
+      <!-- Reiji (locked) -->
+      <div class="talent-card green locked" data-page="Talent/index (1).html?char=reiji">
+        <img src="Talent/Reiji/Reiji_solid_crop.png" oncontextmenu="return false">
+        <div class="lock-overlay"><img src="Talent/Reiji/Pict/Lock.png"></div>
         <div class="glass-card green">
           <p class="sub"><strong>• 吉郎礼二 •</strong></p>
           <h2>Kichirou Reiji</h2>
         </div>
       </div>
+
     </div>
 
     <div class="row bottom">
-      <div class="talent-card purple" data-page="Talent/index.html?char=sanma">
-        <img src="Talent/Sanma/Pict/Sanma_crop.png" oncontextmenu="return false">
+
+      <!-- Sanma -->
+      <div class="talent-card purple" data-page="Talent/index (1).html?char=sanma">
+        <img src="Talent/Sanma/Sanma_crop.png" oncontextmenu="return false">
         <div class="glass-card purple">
           <p class="sub"><strong>• サンマ •</strong></p>
           <h2>Agashi Sanma</h2>
         </div>
       </div>
 
-      <div class="talent-card orange" data-page="Talent/index.html?char=haku">
-        <img src="Talent/Haku/Pict/Haku_Crop.png" oncontextmenu="return false">
+      <!-- Haku -->
+      <div class="talent-card orange" data-page="Talent/index (1).html?char=haku">
+        <img src="Talent/Pict/Haku_Crop.png" oncontextmenu="return false">
         <div class="glass-card orange">
           <p class="sub"><strong>• 白光イシキ •</strong></p>
           <h2>Hakumi Ishiki</h2>
         </div>
       </div>
-    </div>
 
+    </div>
   </section>
 
   <footer>
@@ -102,6 +103,16 @@
   <script src="Main/finisher-header.es5.min.js"></script>
   <script src="script.js"></script>
 
-</body>
+  <!-- Card click handler -->
+  <script>
+    document.querySelectorAll('.talent-card[data-page]').forEach(card => {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => {
+        const page = card.getAttribute('data-page');
+        if (page) window.location.href = page;
+      });
+    });
+  </script>
 
+</body>
 </html>
