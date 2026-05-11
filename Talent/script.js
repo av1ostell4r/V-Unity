@@ -27,14 +27,14 @@ const characters = {
     debut:     "15 September 2025",
     bday:      "20 May",
     story:     " ",
-    avatar:    "Seiko/Seiko 1.png",
+    avatar:    "Seiko/Pict/Seiko 1.png",
     debutVid:  "dQw4w9WgXcQ",
     charsheet: "Seiko/Seiko 2.png",
     socials:   { x:"#", ig:"#", yt:"#", tt:"#", fb:"#" }
   },
   haku: {
     theme:     "theme-haku",
-    type:      "NEKO GUARDIAN",
+    type:      "DEMON HUNTER",
     name:      "Hakumi Ishiki",
     alias:     "✦ 白光イシキ ✦",
     nick:      "Haku / Ishiki",
@@ -44,12 +44,12 @@ const characters = {
     story:     "Penjaga kuil kucing yang turun ke dunia manusia untuk mencari pengikut baru melalui dunia virtual.",
     avatar:    "Pict/Haku 1.png",
     debutVid:  "dQw4w9WgXcQ",
-    charsheet: "Pict/Haku 2.png",
+    charsheet: "Haku/Pict/Haku 1.png",
     socials:   { x:"#", ig:"#", yt:"#", tt:"#", fb:"#" }
   },
   reiji: {
     theme:     "theme-reiji",
-    type:      "CLOUD WALKER",
+    type:      "TRAVELER",
     name:      "Kichirou Reiji",
     alias:     "✦ 吉郎礼二 ✦",
     nick:      "Reiji / Kichirou",
@@ -57,14 +57,14 @@ const characters = {
     debut:     "20 October 2025",
     bday:      "05 April",
     story:     "Seorang pengembara yang tinggal di atas awan, turun ke bumi hanya untuk berbagi cerita indahnya langit.",
-    avatar:    "Reiji/Reiji.png",
+    avatar:    "Reiji/Pict/Reiji.png",
     debutVid:  "dQw4w9WgXcQ",
     charsheet: "",
     socials:   { x:"#", ig:"#", yt:"#", tt:"#", fb:"#" }
   },
   sanma: {
     theme:     "theme-sanma",
-    type:      "DEEP SEA FISH",
+    type:      "HUNTER",
     name:      "Agashi Sanma",
     alias:     "✦ サンマ ✦",
     nick:      "Sanma / Agashi",
@@ -72,7 +72,7 @@ const characters = {
     debut:     "11 November 2025",
     bday:      "22 February",
     story:     "Ikan dari laut terdalam yang bermutasi memiliki kaki dan mencoba berbaur dengan masyarakat daratan.",
-    avatar:    "Sanma/Sanma.png",
+    avatar:    "Sanma/Pict/Sanma.png",
     debutVid:  "dQw4w9WgXcQ",
     charsheet: "Sanma/Sanma sheet.jpeg",
     socials:   { x:"#", ig:"#", yt:"#", tt:"#", fb:"#" }
