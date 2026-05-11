@@ -11,9 +11,7 @@
 <body class="theme-tako">
 
 <!-- ANIMATION BACKGROUND -->
-<div class="animation-bg" id="animationBg">
-  <!-- Dynamic elements will be injected here by JS -->
-</div>
+<div class="animation-bg" id="animationBg"></div>
 
 <!-- NAVBAR -->
 <nav class="navbar">
@@ -30,27 +28,33 @@
   </div>
 </nav>
 
-<!-- SECTION: TALENT -->
-<section id="section-talent">
-
 <div class="page-layout">
 
   <!-- SIDEBAR AVATAR -->
+  <!-- 
+    Nama file crop: Tako_crop.png, Seiko_crop.png, Haku_Crop.png, Reiji_solid_crop.png, Sanma_crop.png
+    Sesuai dengan yang ada di folder masing-masing
+  -->
   <aside class="sidebar">
     <div class="av on" data-char="tako" title="Hyoumonmaru Tako">
-      <img src="Tako/Pict/Tako_crop.png" oncontextmenu="return false">
+      <img src="Tako/Pict/Tako_crop.png" oncontextmenu="return false"
+           onerror="this.style.opacity='0.3'">
     </div>
     <div class="av" data-char="seiko" title="Seiko Hato">
-      <img src="Seiko/Seiko_crop.png" oncontextmenu="return false">
+      <img src="Seiko/Seiko_crop.png" oncontextmenu="return false"
+           onerror="this.style.opacity='0.3'">
     </div>
     <div class="av" data-char="haku" title="Hakumi Ishiki">
-      <img src="Pict/Haku_Crop.png" oncontextmenu="return false">
+      <img src="Pict/Haku_Crop.png" oncontextmenu="return false"
+           onerror="this.style.opacity='0.3'">
     </div>
     <div class="av" data-char="reiji" title="Kichirou Reiji">
-      <img src="Reiji/Reiji_solid_crop.png" oncontextmenu="return false">
+      <img src="Reiji/Reiji_solid_crop.png" oncontextmenu="return false"
+           onerror="this.style.opacity='0.3'">
     </div>
     <div class="av" data-char="sanma" title="Agashi Sanma">
-      <img src="Sanma/Sanma_crop.png" oncontextmenu="return false">
+      <img src="Sanma/Sanma_crop.png" oncontextmenu="return false"
+           onerror="this.style.opacity='0.3'">
     </div>
     <div class="av av--empty" title="Coming Soon"></div>
   </aside>
@@ -95,7 +99,7 @@
     <div class="social-section">
       <p class="social-label">OFFICIAL SOCIALS</p>
       <div class="social" id="social-icons">
-        <img src="Tako/Pict/X.png" class="icon" data-key="x">
+        <img src="Tako/Pict/X.png"  class="icon" data-key="x">
         <img src="Tako/Pict/IG.png" class="icon" data-key="ig">
         <img src="Tako/Pict/YT.png" class="icon" data-key="yt">
         <img src="Tako/Pict/TT.png" class="icon" data-key="tt">
@@ -138,9 +142,6 @@
   </div><!-- end right-panel -->
 </div><!-- end page-layout -->
 
-</section>
-
 <script src="script.js"></script>
 </body>
 </html>
-
