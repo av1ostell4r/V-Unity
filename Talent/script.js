@@ -28,7 +28,7 @@ const characters = {
     bday:      "20 May",
     story:     " ",
     avatar:    "Seiko/Pict/Seiko 1.png",
-    debutVid:  "dQw4w9WgXcQ",
+    debutVid:  "YlX-smfgCHo",
     charsheet: "Seiko/Seiko 2.png",
     socials:   { x:"#", ig:"#", yt:"#", tt:"#", fb:"#" }
   },
@@ -42,8 +42,8 @@ const characters = {
     debut:     "01 October 2025",
     bday:      "12 December",
     story:     "Penjaga kuil kucing yang turun ke dunia manusia untuk mencari pengikut baru melalui dunia virtual.",
-    avatar:    "Pict/Haku 1.png",
-    debutVid:  "dQw4w9WgXcQ",
+    avatar:    "Haku/Pict/Haku 1.png",
+    debutVid:  "5rftwF7r7gk",
     charsheet: "Haku/Pict/Haku 1.png",
     socials:   { x:"#", ig:"#", yt:"#", tt:"#", fb:"#" }
   },
@@ -73,7 +73,7 @@ const characters = {
     bday:      "22 February",
     story:     "Ikan dari laut terdalam yang bermutasi memiliki kaki dan mencoba berbaur dengan masyarakat daratan.",
     avatar:    "Sanma/Pict/Sanma.png",
-    debutVid:  "dQw4w9WgXcQ",
+    debutVid:  "ibWV4k0Onvw",
     charsheet: "Sanma/Sanma sheet.jpeg",
     socials:   { x:"#", ig:"#", yt:"#", tt:"#", fb:"#" }
   },
