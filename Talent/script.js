@@ -90,14 +90,12 @@ function clearAnimations() {
 function initWaves() {
   const bg = document.getElementById("animationBg");
 
-  // 3 glow orbs
   ["wave-orb wave-orb--1","wave-orb wave-orb--2","wave-orb wave-orb--3"].forEach(cls => {
     const el = document.createElement("div");
     el.className = cls;
     bg.appendChild(el);
   });
 
-  // 3 lapis SVG wave — path ditulis manual agar tidak rusak
   const waves = [
     {
       cls: "wave wave--1",
@@ -322,6 +320,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Load karakter dari URL param (?char=tako) atau default tako
   const charParam = new URLSearchParams(window.location.search).get("char");
   switchCharacter(charParam && characters[charParam] ? charParam : "tako");
+
+  // ✅ Bersihkan query string dari URL tanpa reload halaman
+  history.replaceState(null, '', window.location.pathname);
 });
 
 // =============================================
